@@ -17,7 +17,7 @@
 		"build": "tsc",
 		"lint": "eslint --cache .",
 		"test": "jest --coverage",
-		"prepare": "husky"
+		"prepare": "tsc"
 	},
 	"dependencies": {
 		"aws-jwt-verify": "^2.1.1",
