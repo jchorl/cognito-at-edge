@@ -940,6 +940,10 @@ export class Authenticator {
 						this._getRedirectUriFromState(requestParams.state as string),
 					),
 				).catch((err) => {
+					this._logger.debug("Error fetching tokens from code: %s", err);
+					this._logger.debug({ msg: "Response: ", response: err.response });
+					this._logger.debug({ msg: "Response.data: ", data: err.response?.data });
+					this._logger.debug({ msg: "Response.data.error: ", error: err.response?.data?.error });
 					if (err.response?.data?.error === "invalid_grant") {
 						return this._getRedirectToCognitoUserPoolResponse(request, redirectURI);
 					}
